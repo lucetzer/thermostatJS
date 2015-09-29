@@ -20,3 +20,8 @@ Thermostat.prototype.decrease_temp = function() {
   this.temperature = this.temperature - 1;
   return this.temperature;
 };
+
+Thermostat.prototype.reset_thermostat = function() {
+  this.temperature = 20;
+  return this.temperature;
+};
