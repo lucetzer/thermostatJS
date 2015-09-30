@@ -53,4 +53,25 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
+  it('Returns green if temperature is under 18', function() {
+    for (i = thermostat.temperature; i > 17; i--) {
+      thermostat.decrease_temp();
+    }
+    expect(thermostat.energy_usage()).toEqual('green');
+  });
+
+  it('Returns yellow if temperature is under 25', function() {
+    for (i = thermostat.temperature; i < 24; i++) {
+      thermostat.increase_temp();
+    }
+    expect(thermostat.energy_usage()).toEqual('yellow');
+  });
+
+  it('Returns red if temperature is over 25', function() {
+    for (i = thermostat.temperature; i < 25; i++) {
+      thermostat.increase_temp();
+    }
+    expect(thermostat.energy_usage()).toEqual('red');
+  });
+
 });
